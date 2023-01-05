@@ -1,0 +1,31 @@
+/* Entry point function name */
+ENTRY(shellcode_start)
+
+/* ELF memory layout - Physical Headers */
+MEMORY
+{
+    SHELLCODE (rx) : ORIGIN = 0x10000, LENGTH = 32K
+}
+
+/* ELF sections layout */
+SECTIONS
+{
+    /* Easily dump this section with */
+    .shellcode :
+    {
+        KEEP(*(.shellcode.start))
+
+        *(.text*)
+        *(.rodata*)
+
+        *(.data*)
+        *(.bss*)
+
+        shellcode_heap = .;
+    } > SHELLCODE
+
+    /* .data and .bss are also discarded */
+
+    /* Discard everything else */
+    /DISCARD/ : { *(*) }
+}
