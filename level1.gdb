@@ -19,5 +19,5 @@ restore shellcode.bin binary $1
 log "Call shellcode"
 call ((void (*) ()) $1 ) ()
 
-log "Quit program"
+log "Detach program"
 detach
