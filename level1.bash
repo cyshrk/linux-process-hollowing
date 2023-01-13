@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Put shellcode into a anonymous RWX memory page
+# Put shellcode into a anonymous RX memory page
 
 set -x
 
