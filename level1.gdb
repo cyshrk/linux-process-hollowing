@@ -11,7 +11,7 @@ log "Run sleep"
 run 10
 
 log "Memory map anonymous page for shellcode"
-call (void *)mmap(-1, 0x1000, 4 | 1, 0x22, -1, 0)
+call (void *)mmap(-1, 0x1000, 4 | 1, 0x20 | 2, -1, 0)
 
 log "Load shellcode using GDB into anonymous page"
 restore shellcode.bin binary $1
