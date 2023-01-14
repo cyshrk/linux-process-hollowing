@@ -12,9 +12,6 @@ break nanosleep
 log "Run sleep"
 run 10
 
-log "Allocate heap for shellcode"
-set $shellcode_heap = mmap(0, 0x2000, 3, 0x22, -1, 0)
-
 log "Resolve address for shellcode"
 python
 import struct
